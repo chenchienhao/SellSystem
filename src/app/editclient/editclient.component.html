@@ -1,0 +1,64 @@
+<div class="page-header" style="margin-top: 0px;">
+  <div class = "row">
+  <div class="col-md-4">
+    <h2>Edit Client</h2>
+  </div>
+  <div class="col-md-8" style="text-align:right;">
+  <a [routerLink] = "['/client/'+id]" style="text-decoration: none;">
+      Go Back <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+  </a>
+  </div>
+  </div>
+</div>
+<form (submit)="onEditSubmit()">
+  <flash-messages><br /></flash-messages>
+  <div class="row">
+  <div class="col-md-4">
+    <div class="form-group">
+      <label>Image</label>
+      
+      <label class="uploader" ondragover="return false;"
+          [class.loaded]="loaded" 
+          [style.outlineColor]="dragging ? activeColor : baseColor"
+          (dragenter)="handleDragEnter()"
+          (dragleave)="handleDragLeave()"
+          (drop)="handleDrop($event)">
+          <img [src]="imageSrc" (load)="handleImageLoad()" [class.loaded]="imageLoaded"/>
+          <input id="image" type="file" [(ngModel)]="image" name="image" accept="image/*" (change)="handleInputChange($event)">
+      </label>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="form-group">
+      <label>Company</label>
+      <input class="form-control" type="text" [(ngModel)]="company" name="company" required>
+    </div>
+    <div class="form-group">
+      <label>Name</label>
+      <input class="form-control" type="text" [(ngModel)]="name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input class="form-control" type="email" [(ngModel)]="mail" name="mail" (ngModelChange)="mailDuplicate()" required>
+      <span *ngIf="mail_duplicate" style="color:red">This email address has already been registered.</span>
+    </div>
+    <div class="form-group">
+      <label>Numbers</label>
+      <input class="form-control" type="number" [(ngModel)]="numbers" name="numbers" required>
+    </div>
+    <div class="form-group">
+      <label>City</label>
+      <select class="form-control" type="text" [(ngModel)]="city" name="city" required>
+        <option value="CURICO">CURICO</option>
+        <option value="CONCEPCION">CONCEPCION</option>
+        <option value="SANTIAGO">SANTIAGO</option>
+        <option value="TALCA">TALCA</option>
+        <option value="TEMUCO">TEMUCO</option>
+      </select>
+    </div>
+  </div>
+  </div>
+  <div class="row container" style="text-align:right">
+      <input type="submit" value="submit" class="btn btn-success">
+  </div>
+</form>

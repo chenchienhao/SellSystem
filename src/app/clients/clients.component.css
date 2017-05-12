@@ -1,0 +1,24 @@
+.btn-submit{
+    color: #6E6E6E;
+    background-color:#AFE2D1;
+}
+.btn-submit:hover{
+    color: #F5A9D0;
+    background-color:#FAFAFA;
+}
+.my-pagination{
+    cursor: pointer;
+}
+.btn-min{
+    color: #6E6E6E;
+    background-color:#EAFEDD;
+}
+.btn-min:hover{
+    color: #F5A9D0;
+    background-color:#FAFAFA;
+}
+.list-group-item:hover{
+    cursor: pointer;
+    background-color: #FAFAFA;
+    color: #F5A9D0;
+}

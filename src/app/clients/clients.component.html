@@ -1,0 +1,43 @@
+<div class="container">
+<div class="row">
+  <form (submit)="onSearchSubmit()">
+  <div class="input-group"> 
+      <input class="form-control" type="text" [(ngModel)]="name" name="name">
+        <span class="input-group-btn">
+          <input type="submit" value="submit" class="btn btn-submit">
+        </span>
+    </div>
+    </form>
+    <br />
+</div>
+<div class="row">
+  <button type="button" class="btn btn-min pull-right" [routerLink] = "['/addclient']">Add Client</button>
+</div>
+<div class="row" *ngIf="!searching">
+  <ul class="list-group" style="color:#6E6E6E">
+    <li class="list-group-item" [routerLink] = "['/client/'+client.$key]" *ngFor="let client of clients | paginate: {itemsPerPage: 5, currentPage:page, id: 'page_id'}; let i = index">
+        <h4 class="list-group-item-heading" style="font-weight: 500">{{client.name}}</h4>
+        <p class="list-group-item-text">{{client.company}}</p>
+    </li>  
+  </ul>
+  <div class="row">
+    <div class="col-6 col-md-4"></div>
+    <div class="col-6 col-md-4">
+      <pagination-controls  class="my-pagination"
+                            (pageChange)="page = $event" id="page_id"
+                            maxSize="5"
+                            autoHide="true">
+      </pagination-controls>
+    </div>
+    <div class="col-6 col-md-4"></div>
+  </div>
+</div>
+<div class="row" *ngIf="searching">
+  <ul class="list-group" style="color:#6E6E6E">
+    <li class="list-group-item" [routerLink] = "['/client/'+client.$key]" *ngFor="let client of Searchclients">
+        <h4 class="list-group-item-heading" style="font-weight: 500">{{client.name}}</h4>
+        <p class="list-group-item-text">{{client.company}}</p>
+    </li>  
+  </ul>
+</div>
+</div>

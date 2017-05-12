@@ -1,0 +1,12 @@
+.navbar{
+    background-image: url(../../assets/img/jumbotron.png);
+    border: 0;
+}
+.navbar .container .collapse .nav> li>a, .navbar .container .navbar-header>a{
+    color: #6E6E6E;
+}
+
+.navbar .container .collapse .nav> li > a:hover, .navbar .container .collapse .nav> li > a:focus{
+    background-color: #FAFAFA;
+    color: #F5A9D0;
+}

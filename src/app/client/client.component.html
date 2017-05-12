@@ -1,0 +1,29 @@
+<!--<a [routerLink] = "['/clients']">Go Back</a>-->
+<div class="page-header" style="margin-top: 0px;">
+  <div class = "row">
+  <div class="col-md-4">
+    <h2 >{{client.company}} <small>{{client.city}}</small> </h2>
+  </div>
+  <div class="col-md-8" style="text-align:right;">
+  <a [routerLink] = "['/clients']" style="text-decoration: none;">
+      Go Back <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+  </a>
+  </div>
+  </div>
+</div>
+<div class = "row">
+  <div class="col-md-4">
+    <img style="width:100%" class="thumbnail" src="{{imageUrl}}">
+  </div>
+  <div class="col-md-8">
+    <ul class = "list-group">
+      <li class="list-group-item">Name: {{client.name}}</li>
+      <li class="list-group-item">Numbers: {{client.numbers}}</li>
+      <li class="list-group-item">Email: {{client.mail}}</li>
+    </ul>
+    <div style="text-align:right">
+      <a class="btn btn-default" [routerLink]="['/editclient/'+client.$key]">Edit</a>
+      <a class="btn btn-danger" (click)="onDeleteClick()">Delete</a>
+    </div>
+  </div>
+</div>
